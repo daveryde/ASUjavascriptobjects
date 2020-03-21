@@ -9,12 +9,12 @@ main {
   flex: 1 0 auto;
 }
 
-table {
-  margin-top: 0.5rem;
+section {
+  margin: 1rem;
 }
 
-footer {
-  margin-top: 20px;
+table {
+  margin-top: 0.5rem;
 }
 
 .page-footer .footer-copyright {
