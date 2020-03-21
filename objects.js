@@ -27,11 +27,13 @@ function createEntry(newObj) {
 }
 
 function getElements() {
+  // Find the input elements and set them to global variables
   fnameInput = document.querySelector('#fname');
   lnameInput = document.querySelector('#lname');
   mostFavInput = document.querySelector('#top-character');
   leastFavInput = document.querySelector('#bottom-character');
 
+  // Assign input values to global variables for conciseness
   fname = fnameInput.value;
   lname = lnameInput.value;
   mostFav = mostFavInput.value;
