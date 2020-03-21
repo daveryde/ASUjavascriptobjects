@@ -9,12 +9,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Materialize CSS Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="./style.css">
   </head>
 
   <body>
     <!-- Navbar -->
-    <nav class="purple accent-3">
+    <nav class="blue accent-2">
       <div class="container">
         <div class="nav-wrapper">
           <span class="brand-logo">JS Objects</span>
@@ -42,35 +43,30 @@
               <form class="col s12 grey lighten-5 z-depth-2">
                 <div class="row">
                   <div class="input-field col s6">
-                    <input id="first_name" type="text" class="validate">
-                    <label for="first_name">First Name</label>
+                    <input id="fname" type="text" class="validate">
+                    <label for="fname">First Name</label>
                   </div>
                   <div class="input-field col s6">
-                    <input id="last_name" type="text" class="validate">
-                    <label for="last_name">Last Name</label>
+                    <input id="lname" type="text" class="validate">
+                    <label for="lname">Last Name</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="input-field col s12">
-                    <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-                    <label for="disabled">Disabled</label>
+                    <input id="top-character" type="text" class="validate">
+                    <label for="top-character">Most Favorite Disney Character</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="input-field col s12">
-                    <input id="password" type="password" class="validate">
-                    <label for="password">Password</label>
+                    <input id="bottom-character" type="text" class="validate">
+                    <label for="bottom-character">Least Favorite Disney Character</label>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="input-field col s12">
-                    <input id="email" type="email" class="validate">
-                    <label for="email">Email</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                  <div class="input-field col s12 right-align">
+                    <button id="submit" class="btn blue accent-2 waves-effect waves-light" type="submit"
+                      name="submit">Submit
                       <i class="material-icons right">send</i>
                     </button>
                   </div>
@@ -84,42 +80,49 @@
 
           <!-- Table-->
           <section class="section">
-            <table class="responsive-table highlight">
+            <table class="highlight">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Item Name</th>
-                  <th>Item Price</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Most Favorite</th>
+                  <th>Least Favorite</th>
                 </tr>
               </thead>
 
-              <!-- Example Table Item -->
-              <!-- 
-            <tbody>
-              <tr>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-              </tr>
-              <tr>
-                <td>Alan</td>
-                <td>Jellybean</td>
-                <td>$3.76</td>
-              </tr>
-              <tr>
-                <td>Jonathan</td>
-                <td>Lollipop</td>
-                <td>$7.00</td>
-              </tr>
-            </tbody> 
-            -->
+              <tbody id="table-body">
+
+                <!-- Example Table Item -->
+
+                <!-- 
+                  <tr>
+                    <td>Alvin</td>
+                    <td>Eclair</td>
+                    <td>King Triton</td>
+                    <td>Gaston</td>
+                  </tr>
+                  <tr>
+                    <td>Alan</td>
+                    <td>Jellybean</td>
+                    <td>King Triton</td>
+                    <td>Gaston</td>
+                  </tr>
+                  <tr>
+                    <td>Jonathan</td>
+                    <td>Lollipop</td>
+                    <td>King Triton</td>
+                    <td>Gaston</td>
+                  </tr> 
+                -->
+
+              </tbody>
             </table>
           </section>
         </div> <!-- End Of Column -->
       </div> <!-- End Of Row -->
     </main>
 
-    <footer class="page-footer purple accent-3">
+    <footer class="page-footer blue accent-3">
       <div class="container">
         <div class="footer-copyright">
           <blockquote class="grey-text text-lighten-3">Copyright © 2020 For Educational Purposes</blockquote>
@@ -132,14 +135,14 @@
     <!-- Custom JS -->
     <script src="./objects.js"></script>
 
+    <!-- Materialize CSS Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-    <!-- Materialize CSS Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <!-- Initialize Mobile Nav -->
+    <!-- Mobile Nav Initialization. Reference: https://materializecss.com/sidenav.html -->
     <script>
       $(document).ready(function () {
         $('.sidenav').sidenav();
