@@ -1,32 +1,13 @@
+// Global Scope Variables
+var fnameInput, lnameInput, mostFavInput, leastFavInput;
+var fname, lname, mostFav, leastFav;
+
 // Custom Object Constructor
 function CharacterChoice(firstName, lastName, mostFavorite, leastFavorite) {
   this.firstName = firstName,
   this.lastName = lastName,
   this.mostFavorite = mostFavorite,
   this.leastFavorite = leastFavorite
-}
-
-// Form Controller
-function handleForm(e) {
-  // Prevent default submit behavior
-  e.preventDefault();
-
-  // Grab the user input element values
-  var fname = document.querySelector('#fname').value;
-  var lname = document.querySelector('#lname').value;
-  var mostFav = document.querySelector('#top-character').value;
-  var leastFav = document.querySelector('#bottom-character').value;
-
-  if(!fname || !lname || !mostFav || leastFav) {
-    console.log('empty fields')
-    return false;
-  }
-
-  // Create an entry object with user input
-  var entryObj = new CharacterChoice(fname, lname, mostFav, leastFav);
-
-  // Display the object on the document
-  createEntry(entryObj);
 }
 
 function createEntry(newObj) {
@@ -43,6 +24,49 @@ function createEntry(newObj) {
 
   // Add to the table body
   tableBody.appendChild(tableData);
+}
+
+function getElements() {
+  fnameInput = document.querySelector('#fname');
+  lnameInput = document.querySelector('#lname');
+  mostFavInput = document.querySelector('#top-character');
+  leastFavInput = document.querySelector('#bottom-character');
+
+  fname = fnameInput.value;
+  lname = lnameInput.value;
+  mostFav = mostFavInput.value;
+  leastFav = leastFavInput.value;
+}
+
+function clearInputs() {
+  // Clear the values inside each input
+  fnameInput.value = '';
+  lnameInput.value = '';
+  mostFavInput.value = '';
+  leastFavInput.value = '';
+}
+
+// Form Controller
+function handleForm(e) {
+  // Prevent default submit behavior
+  e.preventDefault();
+
+  // Grab the user input element values
+  getElements();
+
+  if(fname === '' || lname === '' || mostFav === '' || leastFav === '') {
+    alert('Please fill in empty fields')
+    return false;
+  }
+
+  // Create an entry object with user input
+  var entryObj = new CharacterChoice(fname, lname, mostFav, leastFav);
+
+  // Display the object on the document
+  createEntry(entryObj);
+
+  // Clear input values
+  clearInputs();
 }
 
 // Adds form submit button click listener
