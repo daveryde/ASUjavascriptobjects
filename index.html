@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects - Case Project</title>
+    <!-- Materialize Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+
+  <body>
+    <!-- Navbar goes here -->
+    <nav class="purple accent-3">
+      <div class="container">
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo">Chapter 7 Case Project</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-small"><i
+              class="material-icons">menu</i></a>
+          <ul class="right hide-on-small-only">
+            <li><a href="https://www.github.com/">Source Code</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="badges.html">Components</a></li>
+      <li><a href="collapsible.html">Javascript</a></li>
+      <li><a href="mobile.html">Mobile</a></li>
+    </ul>
+
+    <main>
+      <div class="row">
+        <div class="col s12 m5 l4">
+
+          <!-- Form  -->
+          <section class="section">
+            <div class="row">
+              <form class="col s12">
+                <div class="row">
+                  <div class="input-field col s6">
+                    <input id="first_name" type="text" class="validate">
+                    <label for="first_name">First Name</label>
+                  </div>
+                  <div class="input-field col s6">
+                    <input id="last_name" type="text" class="validate">
+                    <label for="last_name">Last Name</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+                    <label for="disabled">Disabled</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="email" type="email" class="validate">
+                    <label for="email">Email</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12">
+                    This is an inline input field:
+                    <div class="input-field inline">
+                      <input id="email_inline" type="email" class="validate">
+                      <label for="email_inline">Email</label>
+                      <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </section>
+
+        </div> <!-- End Of Column -->
+
+        <div class="col s12 m7 l8">
+
+          <!-- Table-->
+          <section class="section">
+            <table class="responsive-table highlight">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Item Name</th>
+                  <th>Item Price</th>
+                </tr>
+              </thead>
+
+              <!-- Example Table Item -->
+              <!-- 
+            <tbody>
+              <tr>
+                <td>Alvin</td>
+                <td>Eclair</td>
+                <td>$0.87</td>
+              </tr>
+              <tr>
+                <td>Alan</td>
+                <td>Jellybean</td>
+                <td>$3.76</td>
+              </tr>
+              <tr>
+                <td>Jonathan</td>
+                <td>Lollipop</td>
+                <td>$7.00</td>
+              </tr>
+            </tbody> 
+            -->
+            </table>
+          </section>
+        </div> <!-- End Of Column -->
+
+      </div> <!-- End Of Row -->
+
+    </main>
+
+    <footer class="page-footer purple accent-3">
+      <div class="container">
+        <div class="footer-copyright">
+          Copyright © 2020
+          <a class="grey-text text-lighten-2 right" href="mailto:davidhcordova411@gmail.com">David Cordova</a>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- Custom JS -->
+    <script src="./objects.js"></script>
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- Materialize CSS Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Initialize Mobile Nav -->
+    <script>
+      $(document).ready(function () {
+        $('.sidenav').sidenav();
+      });
+    </script>
+  </body>
+
+</html>

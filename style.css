@@ -1,0 +1,22 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+table {
+  margin-top: 0.5rem;
+}
+
+footer {
+  margin-top: 20px;
+}
+
+.page-footer .footer-copyright {
+  background: none;
+}
