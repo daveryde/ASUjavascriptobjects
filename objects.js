@@ -63,17 +63,15 @@ function getCheckboxes() {
 
   for (item in tempArr) {
     if (tempArr[item].checked) {
-      // Temporarily save the value for formatting
-      // Ensure value is a string
-      // Convert the string to lower case then capitalize the first letter
-      var preformat = tempArr[item].value.toString().toLowerCase();
+      // Transform the value of our array item to a string
+      var tempString = tempArr[item].value.toString();
+      
+      // Format the value by capitalizing the first letter
+      // We take the first letter of the string, capitalize, then combine the capital letter with the rest of the value of item in our array
+      var formattedString = tempString.substr(0, 1).toUpperCase() + tempArr[item].value.substr(1);
 
-      var postformat = preformat.charAt(0).toUpperCase();
-
-      console.log(postformat);
-
-      // Put the checked and formatted value in our global temporary variabble array of checkedbox values
-      checkboxes.push(postformat);
+      // Put the checked and formatted value in our global temporary variable array of checkedbox values
+      checkboxes.push(formattedString);
     }
   }
 }
