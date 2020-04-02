@@ -118,11 +118,11 @@ function handleForm(e) {
   // Grab the user checked checkbox values
   getCheckboxes();
 
-  // var validated = validateInput();
+  var validated = validateInput();
 
-  // if (!validated) {
-  //   return false;
-  // }
+  if (!validated) {
+    return false;
+  }
 
   // Create an entry object with user input
   var entryObj = new CharacterChoice(
@@ -132,17 +132,6 @@ function handleForm(e) {
     leastFavInput.value,
     checkboxes
   );
-  // var entryObj = new CharacterChoice(
-  //   fnameInput.value,
-  //   lnameInput.value,
-  //   mostFavInput.value,
-  //   leastFavInput.value,
-  //   checkboxOne.value,
-  //   checkboxTwo.value,
-  //   checkboxThree.value,
-  //   checkboxFour.value,
-  //   checkboxFive.value
-  // );
 
   // Display the object on the document
   createEntry(entryObj);
