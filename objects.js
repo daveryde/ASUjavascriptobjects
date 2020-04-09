@@ -63,28 +63,13 @@ function getCheckboxes() {
 
   // Loop through checkboxes in tempArr
   for (item in tempArr) {
-
     // Determine values of all the selected checkboxes
     if (tempArr[item].checked) {
-
       // Format the value by capitalizing the first letter
       var formattedString = capitalizeWord(tempArr[item].value);
 
       // Only push to the array if not a duplicate
       checkboxes.push(formattedString);
-
-      // Check is checkboxes array had values already pushed
-      // if (checkboxes.length > 1) {
-
-      //   // Loop through each value in checkboxes array
-      //   for (var i = 0; i < checkboxes.length; i++) {
-          
-      //     // Compare the formatted string value with each item in the checkedboxes array
-      //     if (formattedString === checkboxes[i]) {
-      //       checkboxes.splice(i, 1);
-      //     }
-      //   }
-      // }
     }
   }
 }
@@ -103,17 +88,15 @@ function capitalizeWord(str) {
 function removeDuplicates() {
   // Check is checkboxes array had values already pushed
   if (checkboxes.length > 1) {
-
     // Make an exact copy of the checkboxes array
     var tempArr = checkboxes;
 
     // Loop through each value in checkboxes array
     for (var i = 0; i < checkboxes.length; i++) {
-
-        // Compare the values at each index in the checkedboxes array
-        if (checkboxes[i] === tempArr[i]) {
-          checkboxes.splice(i, 1);
-        }
+      // Compare the values at each index in the checkedboxes array
+      if (checkboxes[i] === tempArr[i]) {
+        checkboxes.splice(i, 1);
+      }
     }
   }
 }
@@ -172,12 +155,15 @@ function handleForm(e) {
   // Grab the user checked checkbox values
   getCheckboxes();
 
+  // Validate fields
   var validated = validateInput();
 
+  // Alert if not valid
   if (!validated) {
     return false;
   }
 
+  // Check for duplicated checkbox values
   removeDuplicates();
 
   // Create an entry object with user input
