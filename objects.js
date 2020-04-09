@@ -89,15 +89,20 @@ function removeDuplicates() {
   // Check is checkboxes array had values already pushed
   if (checkboxes.length > 1) {
     // Make an exact copy of the checkboxes array
-    var tempArr = checkboxes;
+    var tempArr = []
 
-    // Loop through each value in checkboxes array
-    for (var i = 0; i < checkboxes.length; i++) {
-      // Compare the values at each index in the checkedboxes array
-      if (checkboxes[i] === tempArr[i]) {
-        checkboxes.splice(i, 1);
+    // forEach loop through each index value in checkboxes array
+    checkboxes.forEach(function(item, index) {
+
+      // Compare checkbox value at current loop index to eact item in array
+      if (checkboxes.indexOf(item) === index) {
+        // Push duplicated value to temp arr once
+        tempArr.push(item);
       }
-    }
+    });
+
+    // Set checkbox array to unduplicated tempArr
+    checkboxes = tempArr;
   }
 }
 
