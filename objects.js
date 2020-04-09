@@ -1,18 +1,18 @@
 // Global Scope Variables
-var fnameInput, lnameInput, mostFavInput, leastFavInput;
+var fnameInput, emailInput, mostFavInput, leastFavInput;
 var checkboxOne, checkboxTwo, checkboxThree, checkboxFour, checkboxFive;
 var checkboxes = [];
 
 // Custom Object Constructor
 function CharacterChoice(
   firstName,
-  lastName,
+  email,
   mostFavorite,
   leastFavorite,
   checkboxes = []
 ) {
   this.firstName = firstName,
-  this.lastName = lastName,
+  this.email = email,
   this.mostFavorite = mostFavorite,
   this.leastFavorite = leastFavorite,
   this.checkboxes = checkboxes;
@@ -39,7 +39,7 @@ function createEntry(newObj) {
 function getElements() {
   // Find the input elements and set them to global variables
   fnameInput = document.querySelector('#fname');
-  lnameInput = document.querySelector('#lname');
+  emailInput = document.querySelector('#email');
   mostFavInput = document.querySelector('#top-character');
   leastFavInput = document.querySelector('#bottom-character');
 
@@ -77,10 +77,14 @@ function getCheckboxes() {
 }
 
 function validateInput() {
+  // Check for valid email through Regular Expressions (Reference: https://regexr.com/)
+  var emailPattern = new RegExp(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g);
+  var emailCheck = emailPattern.test(emailInput.value);
+
   // Check if the input fields are blank and returns alert if empty
   if (
     fnameInput.value === '' ||
-    lnameInput.value === '' ||
+    emailCheck === false ||
     mostFavInput.value === '' ||
     leastFavInput.value === ''
   ) {
@@ -95,7 +99,7 @@ function validateInput() {
 function clearInputs() {
   // Clear the values inside each input
   fnameInput.value = '';
-  lnameInput.value = '';
+  emailInput.value = '';
   mostFavInput.value = '';
   leastFavInput.value = '';
 
@@ -127,7 +131,7 @@ function handleForm(e) {
   // Create an entry object with user input
   var entryObj = new CharacterChoice(
     fnameInput.value,
-    lnameInput.value,
+    emailInput.value,
     mostFavInput.value,
     leastFavInput.value,
     checkboxes
@@ -138,8 +142,6 @@ function handleForm(e) {
 
   // Clear input values
   clearInputs();
-
-  console.log(entryObj);
 }
 
 // Adds form submit button click listener
