@@ -9,7 +9,7 @@ function CharacterChoice(
   email,
   mostFavorite,
   leastFavorite,
-  checkboxes = []
+  checkboxes
 ) {
   this.firstName = firstName,
   this.email = email,
@@ -61,18 +61,59 @@ function getCheckboxes() {
     checkboxFive,
   ];
 
+  // Loop through checkboxes in tempArr
   for (item in tempArr) {
+
+    // Determine values of all the selected checkboxes
     if (tempArr[item].checked) {
-      // Transform the value of our array item to a string
-      var tempString = tempArr[item].value.toString();
 
       // Format the value by capitalizing the first letter
-      // We take the first letter of the string, capitalize, then combine the capital letter with the rest of the value of item in our array
-      var formattedString =
-        tempString.substr(0, 1).toUpperCase() + tempArr[item].value.substr(1);
+      var formattedString = capitalizeWord(tempArr[item].value);
 
-      // Put the checked and formatted value in our global temporary variable array of checkedbox values
+      // Only push to the array if not a duplicate
       checkboxes.push(formattedString);
+
+      // Check is checkboxes array had values already pushed
+      // if (checkboxes.length > 1) {
+
+      //   // Loop through each value in checkboxes array
+      //   for (var i = 0; i < checkboxes.length; i++) {
+          
+      //     // Compare the formatted string value with each item in the checkedboxes array
+      //     if (formattedString === checkboxes[i]) {
+      //       checkboxes.splice(i, 1);
+      //     }
+      //   }
+      // }
+    }
+  }
+}
+
+function capitalizeWord(str) {
+  // Set temporary variables to transform string then return the result
+  // Format the value by capitalizing the first letter
+  // We take the first letter of the string, capitalize, then combine the capital letter with the rest of the value of item in our array
+  var entireWord = str;
+  var firstLetterCap = entireWord.substr(0, 1).toUpperCase();
+  var formattedWord = firstLetterCap + entireWord.substr(1);
+
+  return formattedWord;
+}
+
+function removeDuplicates() {
+  // Check is checkboxes array had values already pushed
+  if (checkboxes.length > 1) {
+
+    // Make an exact copy of the checkboxes array
+    var tempArr = checkboxes;
+
+    // Loop through each value in checkboxes array
+    for (var i = 0; i < checkboxes.length; i++) {
+
+        // Compare the values at each index in the checkedboxes array
+        if (checkboxes[i] === tempArr[i]) {
+          checkboxes.splice(i, 1);
+        }
     }
   }
 }
@@ -136,6 +177,8 @@ function handleForm(e) {
   if (!validated) {
     return false;
   }
+
+  removeDuplicates();
 
   // Create an entry object with user input
   var entryObj = new CharacterChoice(
