@@ -58,17 +58,18 @@ function getCheckboxes() {
     checkboxTwo,
     checkboxThree,
     checkboxFour,
-    checkboxFive
+    checkboxFive,
   ];
 
   for (item in tempArr) {
     if (tempArr[item].checked) {
       // Transform the value of our array item to a string
       var tempString = tempArr[item].value.toString();
-      
+
       // Format the value by capitalizing the first letter
       // We take the first letter of the string, capitalize, then combine the capital letter with the rest of the value of item in our array
-      var formattedString = tempString.substr(0, 1).toUpperCase() + tempArr[item].value.substr(1);
+      var formattedString =
+        tempString.substr(0, 1).toUpperCase() + tempArr[item].value.substr(1);
 
       // Put the checked and formatted value in our global temporary variable array of checkedbox values
       checkboxes.push(formattedString);
@@ -78,17 +79,25 @@ function getCheckboxes() {
 
 function validateInput() {
   // Check for valid email through Regular Expressions (Reference: https://regexr.com/)
-  var emailPattern = new RegExp(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g);
+  var emailPattern = new RegExp(
+    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
+  );
   var emailCheck = emailPattern.test(emailInput.value);
 
-  // Check if the input fields are blank and returns alert if empty
+  // Check if the input fields are blank and returns an alert if empty
   if (
     fnameInput.value === '' ||
-    emailCheck === false ||
+    emailInput.value === '' ||
     mostFavInput.value === '' ||
     leastFavInput.value === ''
   ) {
     alert('Please fill in empty fields');
+    return false;
+  }
+
+  // Check if the email is valid and returns an alert if invalid
+  if (emailCheck === false) {
+    alert('Please enter a valid email');
     return false;
   }
 
