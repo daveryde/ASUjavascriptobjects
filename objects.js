@@ -68,7 +68,7 @@ function getCheckboxes() {
       // Format the value by capitalizing the first letter
       var formattedString = capitalizeWord(tempArr[item].value);
 
-      // Only push to the array if not a duplicate
+      // Push formatted string to checkboxes array
       checkboxes.push(formattedString);
     }
   }
